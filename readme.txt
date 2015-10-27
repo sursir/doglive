@@ -2,4 +2,3 @@
 	yaf.environ="product"
 
 错误日志在php错误日志;
-ttt
