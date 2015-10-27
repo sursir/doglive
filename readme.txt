@@ -2,13 +2,4 @@
 	yaf.environ="product"
 
 错误日志在php错误日志;
-working modified
-working added
 
-working modified 2
-working added
-
-working modified 3
-working added
-
-working modified 4
