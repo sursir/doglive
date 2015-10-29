@@ -6,4 +6,3 @@ $app = new Yaf\Application(APP_PATH . '/conf/application.ini');
 $app->run();
 
 echo 1;
-
