@@ -4,3 +4,5 @@ define('APP_PATH', __DIR__);
 $app = new Yaf\Application(APP_PATH . '/conf/application.ini');
 
 $app->run();
+
+
