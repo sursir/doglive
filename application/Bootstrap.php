@@ -4,7 +4,7 @@
  * @author young-pc\young
  * @desc 所有在Bootstrap类中, 以_init开头的方法, 都会被Yaf调用,
  * @see http://www.php.net/manual/en/class.yaf-bootstrap-abstract.php
- * 这些方法, 都接受一个参数:Yaf_Dispatcher $dispatcher
+ * 这些方法, 都接受一个参数:Yaf\Dispatcher $dispatcher
  * 调用的次序, 和申明的次序相同
  */
 class Bootstrap extends Yaf\Bootstrap_Abstract{
@@ -12,7 +12,17 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
     public function _initConfig() {
 		//把配置保存起来
 		$arrConfig = Yaf\Application::app()->getConfig();
-		Yaf_Registry::set('config', $arrConfig);
+		Yaf\Registry::set('config', $arrConfig);
+	}
+
+	public function _initLoader(){
+		// 添加本地类库
+		$loader = Yaf\Loader::getInstance();
+		// $loader->registerLocalNameSpace(['X', 'Foo']);
+		// $loader->registerLocalNameSpace('Y');
+		// $loader->registerLocalNameSpace('Z');
+
+		// $loader->registerLocalNameSpace('Foo');
 	}
 
 	public function _initPlugin(Yaf\Dispatcher $dispatcher) {

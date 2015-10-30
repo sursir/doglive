@@ -1,0 +1,43 @@
+Application:
+    config -> Config\Ini:
+                _config = array();
+                _readonly = TRUE
+    dispatcher -> Dispatcher:
+                    _router -> Routher:
+                        _routes = array(
+                            _default -> Route_Static
+                        );
+                        _current = NULL // 当前route
+
+                    _view = NULL
+                    _request -> Request\Http:
+                        module = NULL
+                        controller = NULL
+                        action = NULL
+                        method = "GET"
+                        params = array();
+                        language = NULL
+                        _exception = NULL
+                        _base_uri = "http://dl.cc/"
+                        uri = "/"
+                        dispatched = FALSE
+                        routed = FALSE
+                    _plugins = array();
+                    _auto_render = TRUE
+                    _return_response = FALSE
+                    _instantly_flush = FALSE
+                    _default_module = "Index"
+                    _default_controller = "Index"
+                    _default_action = "index"
+    _modules = array(
+        "Index"
+    );
+    _running = FALSE
+    _environ = "dev"
+    _err_no = 0
+    _err_msg = 0
+
+Config\Ini
+    _config = array();
+    _readonly = TRUE
+
