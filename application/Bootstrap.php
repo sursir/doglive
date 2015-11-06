@@ -18,11 +18,6 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
 	public function _initLoader(){
 		// 添加本地类库
 		$loader = Yaf\Loader::getInstance();
-		// $loader->registerLocalNameSpace(['X', 'Foo']);
-		// $loader->registerLocalNameSpace('Y');
-		// $loader->registerLocalNameSpace('Z');
-
-		// $loader->registerLocalNameSpace('Foo');
 	}
 
 	public function _initPlugin(Yaf\Dispatcher $dispatcher) {
