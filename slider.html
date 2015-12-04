@@ -1,0 +1,35 @@
+<style type="text/css">
+.slider-bar {
+    width: 200px;
+    height: 8px;
+    background-color: #DEDEDE;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    position: relative;
+}
+.slider {
+    height: 12px;
+    width: 12px;
+    background-color: #FF6666;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+    position: absolute;
+    top: -2px;
+    left: 0px;
+}
+</style>
+<div style="position: relative; ">
+<div class="slider-bar"></div>
+<div class="slider"></div>
+</div>
+
+<script>
+var time, slider, timeLen, sliderLen;
+
+slider = sliderLen/timeLen * time;
