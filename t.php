@@ -74,3 +74,44 @@ EOF;
 
 //     echo "\n";
 // }
+
+include 'CurlMulti.php';
+
+
+$url = 'http://127.0.0.1/a.php';
+$options = array(
+    CURLOPT_AUTOREFERER => true,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_CONNECTTIMEOUT => 1,
+    CURLOPT_TIMEOUT => 1,
+);
+$multiOptions = array(
+    CURLOPT_CONNECTTIMEOUT => 1,
+    CURLOPT_TIMEOUT => 1);
+
+// $cm = new CurlMulti($url, $options);
+// $cm->setMultiOpts($multiOptions);
+// $res = $cm->run();
+// $res = $res[0];
+
+$mh = curl_multi_init();
+$ch = curl_init($url);
+curl_multi_add_handle($mh, $ch);
+// curl_multi_setopt($mh, CURLMOPT_TIMEOUT, 1);
+$running = null;
+
+do {
+    while (CURLM_CALL_MULTI_PERFORM === curl_multi_exec($mh, $running));
+    if (!$running) break;
+    while (($res = curl_multi_select($mh, 10)) === 0) {};
+    if (($info = curl_multi_info_read($mh)) !== false) {
+        $infos[$info['handle']] = $info;
+    }
+    if ($res === false) break;
+} while (true);
+
+
+var_dump($infos);
+// $cont = curl_multi_getcontent($ch);
+// $chInfo = curl_getinfo($ch);
+// var_dump($cont, $chInfo);
